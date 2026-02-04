@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- TODO: Set the document title to the name of your application -->
+    <title>Lovable App</title>
+    <meta name="description" content="Lovable Generated Project" />
+    <meta name="author" content="Lovable" />
+
+    <!-- TODO: Update og:title to match your application name -->
+    <meta property="og:title" content="Lovable App" />
+    <meta property="og:description" content="Lovable Generated Project" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Lovable" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <!-- Google tag (gtag.js) - Carregamento dinâmico -->
+    <script id="gtag-script"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      window.gtagReady = false;
+      window.initGtag = function(conversionId) {
+        if (conversionId && !window.gtagReady) {
+          var script = document.getElementById('gtag-script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=' + conversionId;
+          script.async = true;
+          gtag('config', conversionId);
+          window.gtagReady = true;
+        }
+      };
+    </script>
+
+    <!-- Meta Pixel (Facebook) - Carregamento dinâmico -->
+    <script>
+      window.initMetaPixel = function(pixelId) {
+        if (pixelId && !window._fbPixelId) {
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', pixelId);
+          fbq('track', 'PageView');
+          window._fbPixelId = pixelId;
+          console.log('[Meta Pixel] Initialized:', pixelId);
+        }
+      };
+    </script>
+
+    <!-- Utmify Pixel - Carregamento dinâmico -->
+    <script>
+      window.initUtmifyPixel = function(pixelId) {
+        if (pixelId && !window.utmifyReady) {
+          window.googlePixelId = pixelId;
+          var a = document.createElement("script");
+          a.setAttribute("async", "");
+          a.setAttribute("defer", "");
+          a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-google.js");
+          document.head.appendChild(a);
+          window.utmifyReady = true;
+          console.log('[Utmify Pixel] Initialized:', pixelId);
+        }
+      };
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
